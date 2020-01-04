@@ -7,9 +7,10 @@ from aip import AipNlp
 
 # ### 注册百度IP
 
-APP_ID = ""
-API_KEY = ""
-SECRET_KEY = ""
+
+APP_ID = "18020508"
+API_KEY = "9xMDixahxme1TD73OOQXKxr5"
+SECRET_KEY = "MSlCB7GczzqSpNcesHFwHd91N1cfCZWR"
 
 
 client = AipNlp(APP_ID, API_KEY, SECRET_KEY)
@@ -23,9 +24,9 @@ MAXLEN = 1000
 # 
 
 i = 0
-for file_name in os.listdir("./down/"):
+for file_name in os.listdir("D:\\code\\visfinal\\down\\"):
     file_data = []
-    with open("./down/"+file_name,"r", encoding="utf-8") as f:
+    with open("D:\\code\\visfinal\\down\\"+file_name,"r", encoding="utf-8") as f:
         file_data=f.read()
         file_data=json.loads(file_data)
         item_index = 0
@@ -45,7 +46,7 @@ for file_name in os.listdir("./down/"):
             item_index = item_index + 1
         f.close()
         print("{} 完成".format(file_name))
-    with open("./down/"+file_name, "w", encoding="utf-8") as f:
+    with open("D:\\code\\visfinal\\down\\"+file_name, "w", encoding="utf-8") as f:
         file_data = json.dumps(file_data, ensure_ascii=False)
         f.write(file_data)
         f.close()

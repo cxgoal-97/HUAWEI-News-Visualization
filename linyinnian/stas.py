@@ -1,7 +1,7 @@
 #encoding=utf-8
 import os
 import json
-path = "E:\\visfinal\\down"
+path = "D:\\code\\visfinal\\down\\"
 a = os.listdir(path)
 authors = set()
 aucount = {}
@@ -66,13 +66,13 @@ for f in a:
                     midposcount[i][1] += d["comment"]
                     midposcount[i][2] += d["zan"]
     i+=1
-'''
+
 wf = open("stats2.csv",encoding="utf-8",mode="w")
-for i in range(330):
+for i in range(62):
     ar = [dayscount[i],poscount[i],negcount[i],midcount[i],triposcount[i][0],triposcount[i][1],triposcount[i][2],negposcount[i][0],negposcount[i][1],negposcount[i][2],midposcount[i][0],midposcount[i][1],midposcount[i][2]]
     l = ','.join([str(x) for x in ar])
     wf.write(date[i]+','+l+'\n')
-'''
+
 wf2 = open("aucount2.csv",encoding="utf-8",mode="w")
 for d,v in aucount.items():
     wf2.write("%s,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d\n"%(d,v[0],v[1],v[2],v[3],v[4],v[5],v[6],v[7],v[8],v[9],v[10],v[11]))
