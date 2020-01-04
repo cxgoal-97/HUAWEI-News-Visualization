@@ -1,8 +1,9 @@
 
 
 function bubble_plot(key_word, data){
-    const width = window.innerWidth
-    const height = window.innerHeight
+    const width = 400
+    const height = 860
+    console.log(height)
     $("#bubblemap").attr("width", width)
     $("#bubblemap").attr("height", height)
     var aim_min = 2;
@@ -33,7 +34,7 @@ function bubble_plot(key_word, data){
         //declare layout
         const bubble = d3.pack()
             .size([width, height])
-            .padding(5)
+            .padding(2)
             .radius((d) => {
                 return scale(d.data[key_word])
             })

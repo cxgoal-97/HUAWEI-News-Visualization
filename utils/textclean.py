@@ -1,23 +1,11 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 import json
-import os
 import re
 import numpy as np
-from matplotlib import pyplot as plt
-import seaborn as sns
 
 
-# In[2]:
-
-
-for file_name in os.listdir("./down/"):
+def textclean(input_filepath, output_filepath):
     file_data = []
-    with open("./down/"+file_name,"r", encoding="utf-8") as f:
+    with open(input_filepath,"r", encoding="utf-8") as f:
         file_data=f.read()
         file_data=json.loads(file_data)
         for i in file_data:
@@ -42,7 +30,7 @@ for file_name in os.listdir("./down/"):
                 i["comment"] = int("0"+re.findall(r"\d+", '0'+i["comment"])[0])
             except:
                 print("{} comment 不需要处理", i['comment'])
-    with open("./down/"+file_name, "w", encoding="utf-8") as f:
+    with open(output_filepath, "w", encoding="utf-8") as f:
         file_data = json.dumps(file_data, ensure_ascii=False)
         f.write(file_data)
         f.close()

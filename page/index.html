@@ -14,6 +14,7 @@
         <script src="./lib/d3.min.js"></script>
         <script src="./lib/jquery_1.10.2.min.js"></script>
         <script src="./lib/bootstrap.min.js"></script>
+        <script src="./lib/echarts.min.js"></script>
 
         <!-- 导入自己写的函数 -->
         <!-- 工具类-->
@@ -21,7 +22,7 @@
 
         <!-- 视图控制-->
         <script src="./js/bubbleplot.js"></script>
-        <script src="./js/example.js"></script>
+        <script src="./js/sentiment_series_plot.js"></script>
 
     </head>
     <body>
@@ -32,7 +33,7 @@
                     <h2 >垂直导航</h2>
                     <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="#bubblemap">气泡图</a>
+                        <a class="nav-link" href="#all-weibo">气泡图</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#example">玛丽莲梦露</a>
@@ -46,21 +47,22 @@
 
             <!-- 中间内容栏-->
             <div id="content" class="span10">
-                <!-- 气泡图 -->
-                <div id="bubblemap">
-                    <div class="btn-grouh" style="position: absolute; top: 5%; left: 25%;">
-                        <button type="button" class="btn btn-primary">微博数</button>
-                        <button type="button" class="btn btn-primary">点赞数</button>
-                        <button type="button" class="btn btn-primary">评论数</button>
-                        <button type="button" class="btn btn-primary">转发数</button>
+                <!-- 华为微博总体情感图 -->
+                <div id="all-weibo">
+                    <div id="bar-chart">
+                        <div id="sentiment-series" style="width:1000px; height:400px; top: 200px;"></div>
                     </div>
-                    <p id="bubble-tip" style="position: absolute;"></p>
+                    <div id="bubblemap" style="position:absolute; left: 30%; top: 0%; left: 1000px;">
+                        <div class="btn-grouh" style="position: absolute; top: 10%;">
+                            <button type="button" class="btn btn-primary">微博数</button>
+                            <button type="button" class="btn btn-primary">点赞数</button>
+                            <button type="button" class="btn btn-primary">评论数</button>
+                            <button type="button" class="btn btn-primary">转发数</button>
+                        </div>
+                        <p id="bubble-tip" style="position: absolute;"></p>
+                    </div>
                 </div>
 
-                <!-- example -->
-                <div id="example" class="span10">
-                    <p id="example-pic"></p>
-                </div>
             </div>
 
 
@@ -74,14 +76,13 @@
 
         //气泡图部分
         bubble_plot("微博数", weibo_user_info)
+        sentiment_series_plot("微博数", weibo_user_info)
+
         $(".btn-primary").click(function(){
             bubble_plot(this.innerHTML, weibo_user_info)
+            sentiment_series_plot(this.innerHTML, weibo_user_info)
+
         })
-
-        //example 部分
-
-        example()
-        
 
 
     </script>
