@@ -64,11 +64,8 @@
                     <p id="bubble-tip" style="position: absolute;"></p>
                 </div>
 
-
-
-
-
                 <div id="fanruibo" class="span10" style="height: 1177px;width: 2286px;" >
+
                     <div class="btn-grouh">
                       <button id='fanbutton-1' type="button" class="btn btn-danger btn-circle btn-xl popover-show" style="position: relative;left: 20%"
                                 title="孟晚舟事件" data-container="body"
@@ -114,7 +111,7 @@
                         <i class="glyphicon glyphicon-flash"></i>
                       </button>
                       <button class="linebutton" style="position: relative;left: 20%"></button>
-                      <button id='fanbutton-5' type="button" class="btn btn-danger btn-circle btn-xl" style="position: relative;left: 20%;"
+                      <button id='fanbutton-6' type="button" class="btn btn-danger btn-circle btn-xl" style="position: relative;left: 20%;"
                         title="李洪元事件" data-container="body"
                         data-toggle="popover" data-placement="top"
                         data-content="2019年11月28日，有自媒体曝光了一份《刑事赔偿决定书》，将华为与前员工李洪元的陈年纠葛展现在了公众面前。
@@ -123,12 +120,24 @@
                         <i class="glyphicon glyphicon-user"></i>
                       </button>
                     </div>
+                    <button id='fanbutton-7' type="button" class="btn btn btn-info btn-xl" style="position: relative;left: 20%;">
+                        条数</i>
+                     </button>
+                     <button id='fanbutton-8' type="button" class="btn btn btn-info btn-xl" style="position: relative;left: 20%;">
+                        评论</i>
+                     </button>
+                     <button id='fanbutton-9' type="button" class="btn btn btn-info btn-xl" style="position: relative;left: 20%;">
+                        赞</i>
+                     </button>
+                     <button id='fanbutton-10' type="button" class="btn btn btn-info btn-xl" style="position: relative;left: 20%;">
+                       转发</i>
+                     </button>
                   <!-- </div> -->
-                <div id="fanruibo1" >
+                    <div id="fanruibo1" >
                 
-                </div>
+                    </div>
                 
-            </div>
+                 </div>
 
             </div>
         </div>
@@ -137,7 +146,6 @@
     <script type="text/javascript">
         //导入微博用户信息
         var weibo_user_info = get_num_data("./data/weibo_user_info.csv")
-        console.log(weibo_user_info);
 
         //气泡图部分
         bubble_plot("微博数", weibo_user_info)
