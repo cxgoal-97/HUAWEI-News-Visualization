@@ -16,6 +16,8 @@ $(".btn.btn.btn-info.btn-xl").click(function(){
     var zan0=[];
     var zan1=[];
     var zan2=[];
+    var baidu=[];
+    var weibo=[];
     $.get('./data/4/'+id+'.csv').done(function(record){
         //console.log(record)
         record = record.split(/\n/);
@@ -38,6 +40,7 @@ $(".btn.btn.btn-info.btn-xl").click(function(){
             zan0.push(t[7])
             zan1.push(t[8])
             zan2.push(t[9])
+            weibo.push(t[10])
         }
         //console.log("date:"+date)
         //console.log("date:"+date)
@@ -50,7 +53,7 @@ $(".btn.btn.btn-info.btn-xl").click(function(){
         trigger: 'axis'
     },
     legend: {
-        data: ['积极转发', '中性转发', '消极转发', '积极评论', '中性评论', '消极评论','积极点赞', '中性点赞', '消极点赞']
+        data: ['消极转发', '中性转发', '积极转发', '消极评论', '中性评论', '积极评论','消极点赞', '中性点赞', '积极点赞']
     },
     grid: {
         left: '3%',
@@ -90,7 +93,7 @@ $(".btn.btn.btn-info.btn-xl").click(function(){
     
     series: [
         {
-            name: '积极转发',
+            name: '消极转发',
             type: 'line',
             stack: '总量',
             data: trans0
@@ -102,13 +105,13 @@ $(".btn.btn.btn-info.btn-xl").click(function(){
             data: trans1
         },
         {
-            name: '消极转发',
+            name: '积极转发',
             type: 'line',
             stack: '总量',
             data: trans2
         },
         {
-            name: '积极评论',
+            name: '消极评论',
             type: 'line',
             stack: '总量',
             data: comm0
@@ -120,13 +123,13 @@ $(".btn.btn.btn-info.btn-xl").click(function(){
             data: comm1
         },
         {
-            name: '消极评论',
+            name: '积极评论',
             type: 'line',
             stack: '总量',
             data: comm2
         },
         {
-            name: '积极点赞',
+            name: '消极点赞',
             type: 'line',
             stack: '总量',
             data: zan0
@@ -138,7 +141,7 @@ $(".btn.btn.btn-info.btn-xl").click(function(){
             data: zan1
         },
         {
-            name: '消极点赞',
+            name: '积极点赞',
             type: 'line',
             stack: '总量',
             data: zan2
@@ -147,7 +150,84 @@ $(".btn.btn.btn-info.btn-xl").click(function(){
 };
          rllfx.setOption(option);
     });
+    $.get('./data/5/'+id+'.csv').done(function(record){
+        //console.log(record)
+        record = record.split(/\n/);
+            //第一行标题
+        var title = record[0].split(",");
+            //删除第一行
+        //console.log("title"+title)
+        record.shift();
+        
+        for (var i = 0; i < record.length; i++) {
+            var t = record[i].split(",");
+            //console.log("t:"+t[0])
+            baidu.push(t[4])
+        }
+        //console.log("date:"+date)
+        //console.log("date:"+date)
+    var rllfx2 = echarts.init(document.getElementById("rllfx2"));
+        option = {
+    title: {
+        text: '六大华为相关关键词'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data: ['微博', '百度']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: date
+    },
+    yAxis: {
+        type: 'value'
+    },dataZoom: [{
+        type: 'inside',
+        start: 0,
+        end: 10
+    }, {
+        start: 0,
+        end: 10,
+        handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
+        handleSize: '80%',
+        handleStyle: {
+            color: '#fff',
+            shadowBlur: 3,
+            shadowColor: 'rgba(0, 0, 0, 0.6)',
+            shadowOffsetX: 2,
+            shadowOffsetY: 2
+        }
+    }],
     
+    series: [
+        {
+            name: '微博',
+            type: 'line',
+            data: weibo
+        },
+        {
+            name: '百度',
+            type: 'line',
+            data: baidu
+        }
+    ]
+};
+         rllfx2.setOption(option);
+    });
 
     
         
