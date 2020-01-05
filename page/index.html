@@ -6,14 +6,17 @@
         <title>华为舆情可视化</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        
+
         <!-- 导入样式-->
         <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <link rel="stylesheet" href="./css/fanbutton.css">
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 
         <!-- 导入外部依赖库-->
         <script src="./lib/d3.min.js"></script>
         <script src="./lib/jquery_1.10.2.min.js"></script>
         <script src="./lib/bootstrap.min.js"></script>
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="./lib/echarts.min.js"></script>
 
         <!-- 导入自己写的函数 -->
@@ -23,6 +26,9 @@
         <!-- 视图控制-->
         <script src="./js/bubbleplot.js"></script>
         <script src="./js/sentiment_series_plot.js"></script>
+        <script src="./js/example.js"></script>
+        <script src="./js/fanruibo.js"></script>
+
 
     </head>
     <body>
@@ -35,11 +41,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#all-weibo">气泡图</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#example">玛丽莲梦露</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#fanruibo">fanruibo</a>
                     </li>
                     </ul>
                 </div>
@@ -63,16 +70,89 @@
                     </div>
                 </div>
 
+
+                <div id="fanruibo" class="span10" style="height: 1177px;width: 2286px;" >
+
+                    <div class="btn-grouh">
+                      <button id='fanbutton-1' type="button" class="btn btn-danger btn-circle btn-xl popover-show" style="position: relative;left: 20%"
+                                title="孟晚舟事件" data-container="body"
+                                data-toggle="popover" data-placement="top"
+                                data-content="2018年12月1日，孟晚舟在加拿大温哥华被捕，美国向加拿大要求引渡她"
+                                data-trigger = "hover">
+                                <i class="glyphicon glyphicon-user"></i>
+                      </button>
+                      <button class="linebutton" style="position: relative;left: 20%"></button>
+                      <button id='fanbutton-2' type="button" class="btn btn-danger btn-circle btn-xl" style="position: relative;left: 20%;"
+                        title="英国取消华为采购" data-container="body"
+                        data-toggle="popover" data-placement="top"
+                        data-content="2018年12月23日，英国国内最大的电信运营商公开宣布，准备在两年撤走英国军政所使用华为产品，表示未来军政所用的核心网络设备
+                        将不再从华为采购"
+                        data-trigger = "hover">
+                        <i class="glyphicon glyphicon-gbp"></i>
+                      </button>
+                      <button class="linebutton" style="position: relative;left: 20%"></button>
+                      <button id='fanbutton-3' type="button" class="btn btn-danger btn-circle btn-xl" style="position: relative;left: 20%;"
+                        title="美国商务部实体清单" data-container="body"
+                        data-toggle="popover" data-placement="top"
+                        data-content="2019年5月16日，美国商务部正式将华为列入“实体清单”，
+                        禁止美企向华为出售相关技术和产品。路透社指出，美方此举旨在切断华为供应链，令其“无货可卖”"
+                        data-trigger = "hover">
+                        <i class="glyphicon glyphicon-usd"></i>
+                      </button>
+                      <button class="linebutton" style="position: relative;left: 20%"></button>
+                      <button id='fanbutton-4' type="button" class="btn btn-danger btn-circle btn-xl" style="position: relative;left: 20%;"
+                        title="鸿蒙系统" data-container="body"
+                        data-toggle="popover" data-placement="top"
+                        data-content="2019年5月18日，有网友在社交网络上曝光了华为的自研操作系统，命名为“鸿蒙”。
+                        2019年8月9日，华为在东莞举行华为开发者大会，正式发布操作系统鸿蒙OS"
+                        data-trigger = "hover">
+                        <i class="glyphicon glyphicon-ok-circle"></i>
+                      </button>
+                      <button class="linebutton" style="position: relative;left: 20%"></button>
+                      <button id='fanbutton-5' type="button" class="btn btn-danger btn-circle btn-xl" style="position: relative;left: 20%;"
+                         title="IEEE禁止华为员工" data-container="body"
+                         data-toggle="popover" data-placement="top"
+                         data-content="2019年5月29日，一封电气电子工程师学会（英语：Institute of Electrical and Electronics Engineers，简称为IEEE）
+                         发给各位会员的内部邮件流出，邮件称，即日起将禁止华为员工担任审稿人或编辑"
+                         data-trigger = "hover">
+                        <i class="glyphicon glyphicon-flash"></i>
+                      </button>
+                      <button class="linebutton" style="position: relative;left: 20%"></button>
+                      <button id='fanbutton-6' type="button" class="btn btn-danger btn-circle btn-xl" style="position: relative;left: 20%;"
+                        title="李洪元事件" data-container="body"
+                        data-toggle="popover" data-placement="top"
+                        data-content="2019年11月28日，有自媒体曝光了一份《刑事赔偿决定书》，将华为与前员工李洪元的陈年纠葛展现在了公众面前。
+                        李洪元在离职华为半年多后因离职补偿金纠纷入狱251天"
+                        data-trigger = "hover">
+                        <i class="glyphicon glyphicon-user"></i>
+                      </button>
+                    </div>
+                    <button id='fanbutton-7' type="button" class="btn btn btn-info btn-xl" style="position: relative;left: 20%;">
+                        条数</i>
+                     </button>
+                     <button id='fanbutton-8' type="button" class="btn btn btn-info btn-xl" style="position: relative;left: 20%;">
+                        评论</i>
+                     </button>
+                     <button id='fanbutton-9' type="button" class="btn btn btn-info btn-xl" style="position: relative;left: 20%;">
+                        赞</i>
+                     </button>
+                     <button id='fanbutton-10' type="button" class="btn btn btn-info btn-xl" style="position: relative;left: 20%;">
+                       转发</i>
+                     </button>
+                  <!-- </div> -->
+                    <div id="fanruibo1" >
+                
+                    </div>
+                
+                 </div>
+
             </div>
-
-
         </div>
-
     </body>
-    <script>
+    
+    <script type="text/javascript">
         //导入微博用户信息
         var weibo_user_info = get_num_data("./data/weibo_user_info.csv")
-
 
         //气泡图部分
         bubble_plot("微博数", weibo_user_info)
@@ -83,6 +163,11 @@
             sentiment_series_plot(this.innerHTML, weibo_user_info)
 
         })
+        //example 部分
+
+        example()
+        fanruibo()       //代码放在这里，代码里选择 板块, 样式区域画板在body里定义
+
 
 
     </script>
