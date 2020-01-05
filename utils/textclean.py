@@ -27,7 +27,7 @@ def textclean(input_filepath, output_filepath):
                 print("{} transmit 不需要处理", i["transmit"])
             # 评论数转化为数字
             try:
-                i["comment"] = int("0"+re.findall(r"\d+", '0'+i["comment"])[-1]])
+                i["comment"] = int("0"+re.findall(r"\d+", '0'+i["comment"])[-1])
             except:
                 print("{} comment 不需要处理", i['comment'])
     with open(output_filepath, "w", encoding="utf-8") as f:
