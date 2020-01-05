@@ -36,7 +36,7 @@
 + Bootstrap v4.3.1
 + d3 v5.14.2
 + jQuery v1.10.2
-
++ echarts v4.3.0
 
 
 ---
