@@ -39,11 +39,7 @@
                     <h2 >垂直导航</h2>
                     <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="#all-weibo">气泡图</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="#all-weibo">总体舆论图</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#fanruibo">fanruibo</a>
@@ -55,7 +51,7 @@
             <!-- 中间内容栏-->
             <div id="content" class="span10">
                 <!-- 华为微博总体情感图 -->
-                <div id="all-weibo">
+                <div id="all-weibo" class="span10" style="height: 1177px;width: 2286px;">
                     <div id="bar-chart">
                         <div id="sentiment-series" style="width:1000px; height:400px; top: 200px;"></div>
                     </div>
@@ -163,9 +159,7 @@
             sentiment_series_plot(this.innerHTML, weibo_user_info)
 
         })
-        //example 部分
 
-        example()
         fanruibo()       //代码放在这里，代码里选择 板块, 样式区域画板在body里定义
 
 

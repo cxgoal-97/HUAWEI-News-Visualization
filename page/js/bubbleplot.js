@@ -61,19 +61,20 @@ function bubble_plot(key_word, data){
                 return color_scale(positive_num/(positive_num+negative_num))
             })
             .on("mousemove", function(d, i){
+                console.log("ub")
                 var bubble_tip = d3.select("#bubble-tip")
                 bubble_tip
                     .html(`用户:${d.data['用户ID']}<br>${pos_word}:${d.data[pos_word]}<br>${neg_word}:${d.data[neg_word]}`)
-                    .style("left",(d3.event.pageX+20)+"px")//确定数据提示框
-                    .style("top",(d3.event.pageY-20)+"px")
+                    .style("left",(d3.event.pageX-1000)+"px")//确定数据提示框
+                    .style("top",(d3.event.pageY)+"px")
                     .style("opacity",1)
                     .style("background", "yellow")
             })
             .on("mouseout",function (dd,i) {
                 var bubble_tip = d3.select("#bubble-tip")
                 bubble_tip.html("")
-                    .style("left",(-200)+"px")
-                    .style("top",(-200)+"px")
+                    .style("left",(-100)+"px")
+                    .style("top",(-100)+"px")
                     .style("opacity",0.0)
 
             })
