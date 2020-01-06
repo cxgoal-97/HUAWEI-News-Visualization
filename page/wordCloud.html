@@ -1,0 +1,120 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- 导入外部依赖库-->
+        <script src="./lib/d3.min.js"></script>
+        <!-- 导入自己写的函数 -->
+        <!-- 工具类-->
+        <script src="./js/utils.js"></script>
+        <!-- 视图控制-->
+        <script src="./js/bubbleplot.js"></script>
+        <script src="./js/sentiment_series_plot.js"></script>
+        <script src="./js/fanruibo.js"></script>
+
+        <link rel="stylesheet" href="./css/fanbutton.css">
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="./lib/echarts.min.js"></script>
+        <script src="./js/wordcloud.js"></script>
+        <script src="./js/hg.js"></script>
+        <script src='./lib/echarts-wordcloud.js'></script>
+
+    </head>
+    <body>
+        <div id="lyn" class="span10">
+            <div class="panel panel-default center-block" style="width: 80%">
+                <div class="panel-heading align-content-center">
+                    <h3><strong>词云展示</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="center-block" id="wordcloud" style="height: 100%;width: 100%;max-height: 400px;max-width: 400px"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <h4>Top 5 热词 <span class="badge badge-danger">Hot</span></h4>
+                            <div class="btn-group-vertical justify-content-center">
+                                <button type="button" id="kw1_1" class="btn btn-default m-auto" style="width: 100px;height: 40px;display: table;margin-top: 10px">t</button>
+                                <button type="button" id="kw2_1" class="btn btn-default m-auto" style="width: 100px;height: 40px;display: table;margin-top: 10px">t</button>
+                                <button type="button" id="kw3_1" class="btn btn-default m-auto" style="width: 100px;height: 40px;display: table;margin-top: 10px">t</button>
+                                <button type="button" id="kw4_1" class="btn btn-default m-auto" style="width: 100px;height: 40px;display: table;margin-top: 10px">t</button>
+                                <button type="button" id="kw5_1" class="btn btn-default m-auto" style="width: 100px;height: 40px;display: table;margin-top: 10px">t</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="height: 500px;width: 100%">
+                        <div id="line" style="height: 100%;width: 100%;max-height: 500px;max-width: 1200px">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="alert alert-success">您可以通过改变上方滑动窗口的长度与位置进行缩放</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="span10">
+            <div class="panel panel-default center-block" style="width: 80%;min-height: 500px">
+                <div class="panel-heading align-content-center">
+                    <h3><strong>某某展示</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row" style="max-height: 100px">
+                        <!--
+                            在这复制你的代码
+                        -->
+                        <div class="btn-group">
+                            <button id='hghuawei' name='hghuawei'type="button" onclick="huangg()" class="btn btn btn-info btn-xl" style="left: 20%;">
+                                华为
+                            </button>
+                            <button id='hgzhongguo' name='hgzhongguo'type="button" onclick="huangg()" class="btn btn btn-info btn-xl" style="left: 20%;">
+                                中国
+                            </button>
+                            <button id='hgmeiguo' name='hgmeiguo'type="button" onclick="huangg()" class="btn btn btn-info btn-xl" style="left: 20%;">
+                                美国
+                            </button>
+                            <button id='hgrenzhengfei' name='hgrenzhengfei'type="button" onclick="huangg()" class="btn btn btn-info btn-xl" style="left: 20%;">
+                                任正非
+                            </button>
+                            <button id='hg5G' name='hgshipin'type="button" onclick="huangg()" class="btn btn btn-info btn-xl" style="left: 20%;">
+                                5G
+                            </button>
+                            <button id='hgshouji' name='hgshouji'type="button" onclick="huangg()" class="btn btn btn-info btn-xl" style="left: 20%;">
+                                手机
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row" style="width: 100%;height: 600px;max-height: 400px;max-width: 1600px">
+                        <div id="rllfx" style="width: 100%;height:100%;"></div>
+                    </div>
+                    <div class="row" style="width: 100%;height: 600px;max-height: 400px;max-width: 1600px">
+                        <div id="rllfx2" style="width:100%;height:100%;"></div>
+                    </div>
+                    <div class="row" style="width: 100%;height: 600px;max-height: 400px;max-width: 1600px">
+                        <div id="calendar1" style="width:100%;height:100%;"></div>
+                    </div>
+                    <div class="row" style="width: 100%;height: 600px;max-height: 400px;max-width: 1600px">
+                        <div id="calendar2" style="width:100%;height:100%;"></div>
+                    </div>
+                    <div class="row" style="width: 100%;height: 400px;">
+                        <div class="col-md-6" style="width: 100%;height: 400px;max-height: 500px;max-width: 800px">
+                            <div id="circle1" style="width:100%;height:100%;"></div>
+                        </div>
+                        <div class="col-md-6" style="width: 100%;height: 400px;max-height: 500px;max-width: 800px">
+                            <div id="circle2" style="width:100%;height:100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            updateCloud(1);
+            circle1();
+            circle2();
+            calendar1();
+            calendar2();
+        </script>
+    </body>
+</html>
