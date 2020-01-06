@@ -2,7 +2,7 @@
 
 function bubble_plot(key_word, data){
     const width = 400
-    const height = 860
+    const height = 500
     console.log(height)
     $("#bubblemap").attr("width", width)
     $("#bubblemap").attr("height", height)
@@ -65,7 +65,7 @@ function bubble_plot(key_word, data){
                 var bubble_tip = d3.select("#bubble-tip")
                 bubble_tip
                     .html(`用户:${d.data['用户ID']}<br>${pos_word}:${d.data[pos_word]}<br>${neg_word}:${d.data[neg_word]}`)
-                    .style("left",(d3.event.pageX-1000)+"px")//确定数据提示框
+                    .style("left",(d3.event.pageX-1500)+"px")//确定数据提示框
                     .style("top",(d3.event.pageY)+"px")
                     .style("opacity",1)
                     .style("background", "yellow")
