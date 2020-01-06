@@ -1,5 +1,5 @@
 function recursive(arr, left, right, keyword) {
-    if(left >= right)  return;
+    if(left > right)  return;
     let index = partition(arr, left, right, keyword);
     recursive(arr, left, index - 1, keyword);
     recursive(arr, index + 1, right, keyword);
@@ -9,9 +9,9 @@ function partition(arr, left, right, keyword) {
     // 取第一个数为基数
     let temp = arr[left];
     while(left < right) {
-        while(left < right && arr[right][keyword] < temp[keyword])  right--;
+        while(left < right && parseFloat(arr[right][keyword]) < parseFloat(temp[keyword]))  right--;
         arr[left] = arr[right];
-        while(left < right && arr[left][keyword] >= temp[keyword])  left++;
+        while(left < right && parseFloat(arr[left][keyword]) >= parseFloat(temp[keyword]))  left++;
         arr[right] = arr[left];
     }
     // 修改基数的位置
