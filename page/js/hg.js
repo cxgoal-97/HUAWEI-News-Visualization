@@ -32,15 +32,12 @@ $(".btn.btn.btn-info.btn-xl").click(function(){
             //console.log("t:"+t[0])
             date.push(t[0])
             trans0.push(t[1])
-            trans1.push(t[2])
-            trans2.push(t[3])
-            comm0.push(t[4])
-            comm1.push(t[5])
-            comm2.push(t[6])
-            zan0.push(t[7])
-            zan1.push(t[8])
-            zan2.push(t[9])
-            weibo.push(t[10])
+            trans2.push(t[2])
+            comm0.push(t[3])
+            comm2.push(t[4])
+            zan0.push(t[5])
+            zan2.push(t[6])
+            weibo.push(t[7])
         }
         //console.log("date:"+date)
         //console.log("date:"+date)
@@ -53,7 +50,7 @@ $(".btn.btn.btn-info.btn-xl").click(function(){
         trigger: 'axis'
     },
     legend: {
-        data: ['消极转发', '中性转发', '积极转发', '消极评论', '中性评论', '积极评论','消极点赞', '中性点赞', '积极点赞']
+        data: ['消极转发',  '积极转发', '消极评论', '积极评论','消极点赞', '积极点赞']
     },
     grid: {
         left: '3%',
@@ -95,55 +92,39 @@ $(".btn.btn.btn-info.btn-xl").click(function(){
         {
             name: '消极转发',
             type: 'line',
-            stack: '总量',
+
             data: trans0
         },
-        {
-            name: '中性转发',
-            type: 'line',
-            stack: '总量',
-            data: trans1
-        },
+        
         {
             name: '积极转发',
             type: 'line',
-            stack: '总量',
+ 
             data: trans2
         },
         {
             name: '消极评论',
             type: 'line',
-            stack: '总量',
+
             data: comm0
-        },
-        {
-            name: '中性评论',
-            type: 'line',
-            stack: '总量',
-            data: comm1
         },
         {
             name: '积极评论',
             type: 'line',
-            stack: '总量',
+
             data: comm2
         },
         {
             name: '消极点赞',
             type: 'line',
-            stack: '总量',
+
             data: zan0
         },
-        {
-            name: '中性点赞',
-            type: 'line',
-            stack: '总量',
-            data: zan1
-        },
+        
         {
             name: '积极点赞',
             type: 'line',
-            stack: '总量',
+
             data: zan2
         }
     ]
