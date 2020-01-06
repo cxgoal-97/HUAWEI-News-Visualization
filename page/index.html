@@ -184,7 +184,10 @@
 
         fanruibo()       //代码放在这里，代码里选择 板块, 样式区域画板在body里定义
 
-
+        var data = d3.csv("./data/weibo_time.csv");
+        data.then(function(d){
+          console.log(d);
+        })
 
     </script>
 </html>
