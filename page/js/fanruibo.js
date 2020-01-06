@@ -88,13 +88,6 @@ function fanruibo(){
     
 
     $("#fanbutton-1").click(function(){
-      console.log($("#fanbutton-1").css("color"))
-      if($("#fanbutton-1").css("color") === "rgb(255, 255, 0)"){
-        $("#fanbutton-1").css("color", "white")
-      }else{
-        $("#fanbutton-1").css("color", "yellow")
-      }
-
       $.get('./data/pos-neg.json').done(function(data){
         var data = JSON.parse(data);
         option2 = {
