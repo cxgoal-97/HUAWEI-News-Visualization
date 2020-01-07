@@ -79,24 +79,27 @@ function fanruibo(){
     var height = window.innerHeight
     console.log(width);
     console.log(height);
-    document.getElementById("fanruibo").style.width=width+"px";      //注意这里要打引号
-    document.getElementById("fanruibo").style.height=height+"px";
-    document.getElementById("fanruibo1").style.width=width+"px";      //注意这里要打引号
-    document.getElementById("fanruibo1").style.height=height-100+"px";
 
-    var pos_neg_chart = echarts.init(document.getElementById("fanruibo1"));
-    pos_neg_chart.setOption(option);
+    // document.getElementById("fanruibo").style.width=width+"px";      //注意这里要打引号
+    // document.getElementById("fanruibo").style.height=height+"px";
+    // document.getElementById("fanruibo1").style.width=width+"px";      //注意这里要打引号
+    // document.getElementById("fanruibo1").style.height=height-100+"px";
+
+    // var pos_neg_chart = echarts.init(document.getElementById("fanruibo1"));
+    // pos_neg_chart.setOption(option);
 
     $.get('./data/posnegstatswithtext-0.json').done(function(data){
-      var data = JSON.parse(data);
-      // console.log(data)
+      console.log(typeof data);
+      console.log(data)
+      var data = typeof data == 'string' ? JSON.parse(data) : data;
+      console.log(data)
       // console.log(data.product)
-	   pos_neg_chart.setOption({
-        dataset: {
-            dimensions: ['日期序号', '积极条数', '消极条数'],
-            source: data
-        },
-       });
+	   // pos_neg_chart.setOption({
+     //    dataset: {
+     //        dimensions: ['日期序号', '积极条数', '消极条数'],
+     //        source: data
+     //    },
+     //   });
 
        $("#fanbutton-7").click(function(){
          pos_neg_chart.setOption({
