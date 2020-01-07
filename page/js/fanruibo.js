@@ -158,10 +158,12 @@ function fanruibo(){
       //    data_path =  './data/posnegstatswithtext-0.json';          //整体
       //    // updateCloud(0);
       // }
-      
+
       $.get(data_path).done(function(data){
-        // console.log(data)
-        var data = JSON.parse(data);
+        console.log(typeof data);
+        console.log(data)
+        var data = typeof data == 'string' ? JSON.parse(data) : data;
+        console.log(data)
         console.log(data[0]['中性条数']);
         option2 = {
           legend: {
