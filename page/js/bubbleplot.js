@@ -1,13 +1,12 @@
 
 
 function bubble_plot(key_word, data){
-    const width = 400
-    const height = 860
-    console.log(height)
+    const width = 300
+    const height = 500
     $("#bubblemap").attr("width", width)
     $("#bubblemap").attr("height", height)
     var aim_min = 2;
-    var aim_max = 40;
+    var aim_max = 50;
 
     //展示微博数量，点赞，评论，转发 (总数)
     //var key_word = "微博数量"
@@ -25,7 +24,7 @@ function bubble_plot(key_word, data){
         var scale = d3.scaleLinear().domain([min_value, max_value]).range([aim_min, aim_max])
         //气泡颜色插值比例尺
         var color_scale = d3.interpolate(d3.rgb(0,0,0), d3.rgb(255,0,0))
-        
+
         d3.select("#bubblemap").selectAll("svg").remove()
         var svg = d3.select("#bubblemap").append("svg")
         svg .attr("width", width)
@@ -34,9 +33,9 @@ function bubble_plot(key_word, data){
         //declare layout
         const bubble = d3.pack()
             .size([width, height])
-            .padding(2)
+            .padding(1)
             .radius((d) => {
-                return scale(d.data[key_word])
+                return scale(d.data[key_word]/3)
             })
 
 
@@ -61,14 +60,14 @@ function bubble_plot(key_word, data){
                 return color_scale(positive_num/(positive_num+negative_num))
             })
             .on("mousemove", function(d, i){
-                console.log("ub")
                 var bubble_tip = d3.select("#bubble-tip")
                 bubble_tip
-                    .html(`用户:${d.data['用户ID']}<br>${pos_word}:${d.data[pos_word]}<br>${neg_word}:${d.data[neg_word]}`)
-                    .style("left",(d3.event.pageX-1000)+"px")//确定数据提示框
-                    .style("top",(d3.event.pageY)+"px")
+                    .html(`<p  style="color:white">&nbsp;&nbsp;用户:${d.data['用户ID']}<br>&nbsp;&nbsp;${pos_word}:${d.data[pos_word]}<br>&nbsp;&nbsp;${neg_word}:${d.data[neg_word]}<\p>`)
+                    .style("left",(d3.event.pageX-700)+"px")//确定数据提示框
+                    .style("top",(d3.event.pageY-300)+"px")
                     .style("opacity",1)
-                    .style("background", "yellow")
+                    .style("width", 200)
+                    .style("background", "grey")
             })
             .on("mouseout",function (dd,i) {
                 var bubble_tip = d3.select("#bubble-tip")

@@ -50,7 +50,7 @@ function sentiment_series_plot(key_word, data){
         }
         var option = {
         title: {
-            text: '柱状图动画延迟'
+            text: '微博用户发表'
         },
         legend: {
             data: ['积极', '消极']
