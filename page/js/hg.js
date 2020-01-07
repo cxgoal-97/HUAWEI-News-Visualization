@@ -5,7 +5,7 @@ function huangg(){
         var id=$(this).attr("id")
         //console.log("id"+id)
         id=id.slice(2);
-        //console.log("id"+id)
+        console.log("id"+id)
         var date = [];
         var trans0=[];
         var trans1=[];
