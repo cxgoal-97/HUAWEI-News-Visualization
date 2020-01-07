@@ -1,5 +1,5 @@
-function fanruibo(){
 
+function fanruibo(){
 
     $(function () { $("[data-toggle='popover']").popover(); });
 
