@@ -15,23 +15,23 @@ function fanruibo(){
             trigger: 'axis',
             show: true,
             borderColor: "#C3CBD6",
-            extraCssText:' width:1000px; height:600px; white-space:pre-wrap;',
+            extraCssText:' width:600px; height:400px; white-space:pre-wrap;',
             formatter: function(datas)
             {
                 // alert(JSON.stringify(datas));
                 var res = datas[0].name + '<br/>', val;
                 res += "积极微博： "
-                res += datas[0].data['积极微博'].slice(0,150) + '<br/>';
+                res += datas[0].data['积极微博'].slice(0,100) + '<br/>';
                 res += '<br/>';
                 res += "消极微博： "
-                res += datas[0].data['消极微博'].slice(0,150) + '<br/>';
+                res += datas[0].data['消极微博'].slice(0,100) + '<br/>';
                 return res;
             },
             textStyle : {
                 color: 'yellow',
                 decoration: 'none',
                 fontFamily: 'Verdana, sans-serif',
-                fontSize: 32,
+                fontSize: 22,
             }
         },
         dataset: {
@@ -75,15 +75,15 @@ function fanruibo(){
         ]
     };
 
-    var width = window.innerWidth
-    var height = window.innerHeight
-    console.log(width);
-    console.log(height);
-
-    document.getElementById("fanruibo").style.width=width+"px";      //注意这里要打引号
-    document.getElementById("fanruibo").style.height=height+"px";
-    document.getElementById("fanruibo1").style.width=width+"px";      //注意这里要打引号
-    document.getElementById("fanruibo1").style.height=height-100+"px";
+    // var width = window.innerWidth
+    // var height = window.innerHeight
+    // console.log(width);
+    // console.log(height);
+    //
+    // document.getElementById("fanruibo").style.width=1000+"px";      //注意这里要打引号
+    // document.getElementById("fanruibo").style.height=500+"px";
+    // document.getElementById("fanruibo1").style.width=1000+"px";      //注意这里要打引号
+    // document.getElementById("fanruibo1").style.height=400+"px";
 
     var pos_neg_chart = echarts.init(document.getElementById("fanruibo1"));
     pos_neg_chart.setOption(option);
@@ -147,24 +147,20 @@ function fanruibo(){
         if($("#fanbutton-1").css("color") === "rgb(255, 255, 255)"){
             $("#fanbutton-1").css("color", "rgb(17, 236, 52)");
             data_path =  './data/posnegstatswithtext-1.json';          //1-孟
-            // updateCloud(1);
+            console.log(1);
+            updateCloud(1);
         }else{
             $("#fanbutton-1").css("color", "rgb(255, 255, 255)");
             data_path =  './data/posnegstatswithtext-0.json';          //整体
-            // updateCloud(0);
+            updateCloud(0);
+            console.log(0);
         }
-        // if($("#fanbutton-1").css("color") === "rgb(17, 236, 52)"){
-        //    $("#fanbutton-1").css("color", "rgb(255, 255, 255)");
-        //    data_path =  './data/posnegstatswithtext-0.json';          //整体
-        //    // updateCloud(0);
-        // }
-
         $.get(data_path).done(function(data){
             console.log(typeof data);
-            console.log(data)
+            // console.log(data)
             var data = typeof data == 'string' ? JSON.parse(data) : data;
-            console.log(data)
-            console.log(data[0]['中性条数']);
+            // console.log(data)
+
             option2 = {
                 legend: {
                     data: ['积极', '消极'],
@@ -177,25 +173,24 @@ function fanruibo(){
                     trigger: 'axis',
                     show: true,
                     borderColor: "#C3CBD6",
-                    extraCssText:' width:1000px; height:600px; white-space:pre-wrap;',
+                    extraCssText:' width:600px; height:400px; white-space:pre-wrap;',
                     formatter: function(datas)
                     {
                         // alert(JSON.stringify(datas));
                         var res = datas[0].name + '<br/>', val;
                         res += "积极微博： "
-                        res += datas[0].data['积极微博'].slice(0,150) + '<br/>';
+                        res += datas[0].data['积极微博'].slice(0,100) + '<br/>';
                         res += '<br/>';
                         res += "消极微博： "
-                        res += datas[0].data['消极微博'].slice(0,150) + '<br/>';
+                        res += datas[0].data['消极微博'].slice(0,100) + '<br/>';
                         return res;
                     },
                     textStyle : {
                         color: 'yellow',
                         decoration: 'none',
                         fontFamily: 'Verdana, sans-serif',
-                        fontSize: 32,
+                        fontSize: 22,
                     }
-
                 },
                 dataset: {
                     dimensions: ['日期序号', '积极条数', '消极条数'],
@@ -253,16 +248,17 @@ function fanruibo(){
             $("#fanbutton-2").css("color", "rgb(17, 236, 52)");
             data_path =  './data/posnegstatswithtext-2.json';          //1-孟
             updateCloud(2);
-        }
-        if($("#fanbutton-2").css("color") === "rgb(17, 236, 52)"){
-            $("#fanbutton-2").css("color", "rgb(255, 255, 255)");
-            data_path =  './data/posnegstatswithtext-0.json';          //整体
-            updateCloud(0);
+        }else {
+              $("#fanbutton-2").css("color", "rgb(255, 255, 255)");
+              data_path =  './data/posnegstatswithtext-0.json';          //整体
+              updateCloud(0);
         }
 
         $.get(data_path).done(function(data){
             // console.log(data)
-            var data = JSON.parse(data);
+            console.log(typeof data);
+            // console.log(data)
+            var data = typeof data == 'string' ? JSON.parse(data) : data;
             console.log(data[0]['中性条数']);
             option2 = {
                 legend: {
@@ -276,25 +272,24 @@ function fanruibo(){
                     trigger: 'axis',
                     show: true,
                     borderColor: "#C3CBD6",
-                    extraCssText:' width:1000px; height:600px; white-space:pre-wrap;',
+                    extraCssText:' width:600px; height:400px; white-space:pre-wrap;',
                     formatter: function(datas)
                     {
                         // alert(JSON.stringify(datas));
                         var res = datas[0].name + '<br/>', val;
                         res += "积极微博： "
-                        res += datas[0].data['积极微博'].slice(0,150) + '<br/>';
+                        res += datas[0].data['积极微博'].slice(0,100) + '<br/>';
                         res += '<br/>';
                         res += "消极微博： "
-                        res += datas[0].data['消极微博'].slice(0,150) + '<br/>';
+                        res += datas[0].data['消极微博'].slice(0,100) + '<br/>';
                         return res;
                     },
                     textStyle : {
                         color: 'yellow',
                         decoration: 'none',
                         fontFamily: 'Verdana, sans-serif',
-                        fontSize: 32,
+                        fontSize: 22,
                     }
-
                 },
                 dataset: {
                     dimensions: ['日期序号', '积极条数', '消极条数'],
@@ -352,8 +347,7 @@ function fanruibo(){
             $("#fanbutton-3").css("color", "rgb(17, 236, 52)");
             data_path =  './data/posnegstatswithtext-3.json';          //1-孟
             updateCloud(3);
-        }
-        if($("#fanbutton-3").css("color") === "rgb(17, 236, 52)"){
+        }else{
             $("#fanbutton-3").css("color", "rgb(255, 255, 255)");
             data_path =  './data/posnegstatswithtext-0.json';          //整体
             updateCloud(0);
@@ -361,7 +355,9 @@ function fanruibo(){
 
         $.get(data_path).done(function(data){
             // console.log(data)
-            var data = JSON.parse(data);
+            console.log(typeof data);
+            // console.log(data)
+            var data = typeof data == 'string' ? JSON.parse(data) : data;
             console.log(data[0]['中性条数']);
             option2 = {
                 legend: {
@@ -375,25 +371,24 @@ function fanruibo(){
                     trigger: 'axis',
                     show: true,
                     borderColor: "#C3CBD6",
-                    extraCssText:' width:1000px; height:600px; white-space:pre-wrap;',
+                    extraCssText:' width:600px; height:400px; white-space:pre-wrap;',
                     formatter: function(datas)
                     {
                         // alert(JSON.stringify(datas));
                         var res = datas[0].name + '<br/>', val;
                         res += "积极微博： "
-                        res += datas[0].data['积极微博'].slice(0,150) + '<br/>';
+                        res += datas[0].data['积极微博'].slice(0,100) + '<br/>';
                         res += '<br/>';
                         res += "消极微博： "
-                        res += datas[0].data['消极微博'].slice(0,150) + '<br/>';
+                        res += datas[0].data['消极微博'].slice(0,100) + '<br/>';
                         return res;
                     },
                     textStyle : {
                         color: 'yellow',
                         decoration: 'none',
                         fontFamily: 'Verdana, sans-serif',
-                        fontSize: 32,
+                        fontSize: 22,
                     }
-
                 },
                 dataset: {
                     dimensions: ['日期序号', '积极条数', '消极条数'],
@@ -451,8 +446,7 @@ function fanruibo(){
             $("#fanbutton-4").css("color", "rgb(17, 236, 52)");
             data_path =  './data/posnegstatswithtext-4.json';          //1-孟
             updateCloud(4);
-        }
-        if($("#fanbutton-4").css("color") === "rgb(17, 236, 52)"){
+        }else{
             $("#fanbutton-4").css("color", "rgb(255, 255, 255)");
             data_path =  './data/posnegstatswithtext-0.json';          //整体
             updateCloud(0);
@@ -460,7 +454,9 @@ function fanruibo(){
 
         $.get(data_path).done(function(data){
             // console.log(data)
-            var data = JSON.parse(data);
+            console.log(typeof data);
+            // console.log(data)
+            var data = typeof data == 'string' ? JSON.parse(data) : data;
             console.log(data[0]['中性条数']);
             option2 = {
                 legend: {
@@ -474,25 +470,24 @@ function fanruibo(){
                     trigger: 'axis',
                     show: true,
                     borderColor: "#C3CBD6",
-                    extraCssText:' width:1000px; height:600px; white-space:pre-wrap;',
+                    extraCssText:' width:600px; height:400px; white-space:pre-wrap;',
                     formatter: function(datas)
                     {
                         // alert(JSON.stringify(datas));
                         var res = datas[0].name + '<br/>', val;
                         res += "积极微博： "
-                        res += datas[0].data['积极微博'].slice(0,150) + '<br/>';
+                        res += datas[0].data['积极微博'].slice(0,100) + '<br/>';
                         res += '<br/>';
                         res += "消极微博： "
-                        res += datas[0].data['消极微博'].slice(0,150) + '<br/>';
+                        res += datas[0].data['消极微博'].slice(0,100) + '<br/>';
                         return res;
                     },
                     textStyle : {
                         color: 'yellow',
                         decoration: 'none',
                         fontFamily: 'Verdana, sans-serif',
-                        fontSize: 32,
+                        fontSize: 22,
                     }
-
                 },
                 dataset: {
                     dimensions: ['日期序号', '积极条数', '消极条数'],
@@ -550,16 +545,15 @@ function fanruibo(){
             $("#fanbutton-5").css("color", "rgb(17, 236, 52)");
             data_path =  './data/posnegstatswithtext-5.json';          //1-孟
             updateCloud(5);
-        }
-        if($("#fanbutton-5").css("color") === "rgb(17, 236, 52)"){
+        }else{
             $("#fanbutton-5").css("color", "rgb(255, 255, 255)");
             data_path =  './data/posnegstatswithtext-0.json';          //整体
             updateCloud(0);
         }
 
         $.get(data_path).done(function(data){
-            // console.log(data)
-            var data = JSON.parse(data);
+            console.log(typeof data);
+            var data = typeof data == 'string' ? JSON.parse(data) : data;
             console.log(data[0]['中性条数']);
             option2 = {
                 legend: {
@@ -573,25 +567,24 @@ function fanruibo(){
                     trigger: 'axis',
                     show: true,
                     borderColor: "#C3CBD6",
-                    extraCssText:' width:1000px; height:600px; white-space:pre-wrap;',
+                    extraCssText:' width:600px; height:400px; white-space:pre-wrap;',
                     formatter: function(datas)
                     {
                         // alert(JSON.stringify(datas));
                         var res = datas[0].name + '<br/>', val;
                         res += "积极微博： "
-                        res += datas[0].data['积极微博'].slice(0,150) + '<br/>';
+                        res += datas[0].data['积极微博'].slice(0,100) + '<br/>';
                         res += '<br/>';
                         res += "消极微博： "
-                        res += datas[0].data['消极微博'].slice(0,150) + '<br/>';
+                        res += datas[0].data['消极微博'].slice(0,100) + '<br/>';
                         return res;
                     },
                     textStyle : {
                         color: 'yellow',
                         decoration: 'none',
                         fontFamily: 'Verdana, sans-serif',
-                        fontSize: 32,
+                        fontSize: 22,
                     }
-
                 },
                 dataset: {
                     dimensions: ['日期序号', '积极条数', '消极条数'],
@@ -649,8 +642,7 @@ function fanruibo(){
             $("#fanbutton-6").css("color", "rgb(17, 236, 52)");
             data_path =  './data/posnegstatswithtext-6.json';          //1-孟
             updateCloud(6);
-        }
-        if($("#fanbutton-6").css("color") === "rgb(17, 236, 52)"){
+        }else{
             $("#fanbutton-6").css("color", "rgb(255, 255, 255)");
             data_path =  './data/posnegstatswithtext-0.json';          //整体
             updateCloud(0);
@@ -658,7 +650,9 @@ function fanruibo(){
 
         $.get(data_path).done(function(data){
             // console.log(data)
-            var data = JSON.parse(data);
+            console.log(typeof data);
+            // console.log(data)
+            var data = typeof data == 'string' ? JSON.parse(data) : data;
             console.log(data[0]['中性条数']);
             option2 = {
                 legend: {
@@ -672,25 +666,24 @@ function fanruibo(){
                     trigger: 'axis',
                     show: true,
                     borderColor: "#C3CBD6",
-                    extraCssText:' width:1000px; height:600px; white-space:pre-wrap;',
+                    extraCssText:' width:600px; height:400px; white-space:pre-wrap;',
                     formatter: function(datas)
                     {
                         // alert(JSON.stringify(datas));
                         var res = datas[0].name + '<br/>', val;
                         res += "积极微博： "
-                        res += datas[0].data['积极微博'].slice(0,150) + '<br/>';
+                        res += datas[0].data['积极微博'].slice(0,100) + '<br/>';
                         res += '<br/>';
                         res += "消极微博： "
-                        res += datas[0].data['消极微博'].slice(0,150) + '<br/>';
+                        res += datas[0].data['消极微博'].slice(0,100) + '<br/>';
                         return res;
                     },
                     textStyle : {
                         color: 'yellow',
                         decoration: 'none',
                         fontFamily: 'Verdana, sans-serif',
-                        fontSize: 32,
+                        fontSize: 22,
                     }
-
                 },
                 dataset: {
                     dimensions: ['日期序号', '积极条数', '消极条数'],
