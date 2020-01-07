@@ -93,7 +93,7 @@ function fanruibo(){
       console.log(data)
       var data = typeof data == 'string' ? JSON.parse(data) : data;
       console.log(data)
-      console.log(data.product)
+      // console.log(data.product)
 	   pos_neg_chart.setOption({
         dataset: {
             dimensions: ['日期序号', '积极条数', '消极条数'],
@@ -147,14 +147,18 @@ function fanruibo(){
       if($("#fanbutton-1").css("color") === "rgb(255, 255, 255)"){
          $("#fanbutton-1").css("color", "rgb(17, 236, 52)");
          data_path =  './data/posnegstatswithtext-1.json';          //1-孟
-         updateCloud(1);
+         // updateCloud(1);
+      }else{
+        $("#fanbutton-1").css("color", "rgb(255, 255, 255)");
+          data_path =  './data/posnegstatswithtext-0.json';          //整体
+          // updateCloud(0);
       }
-      if($("#fanbutton-1").css("color") === "rgb(17, 236, 52)"){
-         $("#fanbutton-1").css("color", "rgb(255, 255, 255)");
-         data_path =  './data/posnegstatswithtext-0.json';          //整体
-         updateCloud(0);
-      }
-
+      // if($("#fanbutton-1").css("color") === "rgb(17, 236, 52)"){
+      //    $("#fanbutton-1").css("color", "rgb(255, 255, 255)");
+      //    data_path =  './data/posnegstatswithtext-0.json';          //整体
+      //    // updateCloud(0);
+      // }
+      
       $.get(data_path).done(function(data){
         // console.log(data)
         var data = JSON.parse(data);
