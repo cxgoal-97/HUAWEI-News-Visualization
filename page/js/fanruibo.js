@@ -135,6 +135,7 @@ function fanruibo(){
 
 ////////////////////////////////////////////////////////////////
     $("#fanbutton-1").click(function(){                             //孟晚舟事件
+
       var flag = 0;
       var data_path = [];
       for(var i=1; i<7; i++){
@@ -146,10 +147,12 @@ function fanruibo(){
       if($("#fanbutton-1").css("color") === "rgb(255, 255, 255)"){
          $("#fanbutton-1").css("color", "rgb(17, 236, 52)");
          data_path =  './data/posnegstatswithtext-1.json';          //1-孟
+         updateCloud(1);
       }
       if($("#fanbutton-1").css("color") === "rgb(17, 236, 52)"){
          $("#fanbutton-1").css("color", "rgb(255, 255, 255)");
          data_path =  './data/posnegstatswithtext-0.json';          //整体
+         updateCloud(0);
       }
 
       $.get(data_path).done(function(data){
@@ -243,10 +246,12 @@ $("#fanbutton-2").click(function(){                             //孟晚舟事�
   if($("#fanbutton-2").css("color") === "rgb(255, 255, 255)"){
      $("#fanbutton-2").css("color", "rgb(17, 236, 52)");
      data_path =  './data/posnegstatswithtext-2.json';          //1-孟
+     updateCloud(2);
   }
   if($("#fanbutton-2").css("color") === "rgb(17, 236, 52)"){
      $("#fanbutton-2").css("color", "rgb(255, 255, 255)");
      data_path =  './data/posnegstatswithtext-0.json';          //整体
+     updateCloud(0);
   }
 
   $.get(data_path).done(function(data){
@@ -340,10 +345,12 @@ $("#fanbutton-3").click(function(){                             //孟晚舟事�
   if($("#fanbutton-3").css("color") === "rgb(255, 255, 255)"){
      $("#fanbutton-3").css("color", "rgb(17, 236, 52)");
      data_path =  './data/posnegstatswithtext-3.json';          //1-孟
+     updateCloud(3);
   }
   if($("#fanbutton-3").css("color") === "rgb(17, 236, 52)"){
      $("#fanbutton-3").css("color", "rgb(255, 255, 255)");
      data_path =  './data/posnegstatswithtext-0.json';          //整体
+     updateCloud(0);
   }
 
   $.get(data_path).done(function(data){
@@ -437,10 +444,12 @@ $("#fanbutton-4").click(function(){                             //孟晚舟事�
   if($("#fanbutton-4").css("color") === "rgb(255, 255, 255)"){
      $("#fanbutton-4").css("color", "rgb(17, 236, 52)");
      data_path =  './data/posnegstatswithtext-4.json';          //1-孟
+     updateCloud(4);
   }
   if($("#fanbutton-4").css("color") === "rgb(17, 236, 52)"){
      $("#fanbutton-4").css("color", "rgb(255, 255, 255)");
      data_path =  './data/posnegstatswithtext-0.json';          //整体
+     updateCloud(0);
   }
 
   $.get(data_path).done(function(data){
@@ -534,10 +543,12 @@ $("#fanbutton-5").click(function(){                             //孟晚舟事�
   if($("#fanbutton-5").css("color") === "rgb(255, 255, 255)"){
      $("#fanbutton-5").css("color", "rgb(17, 236, 52)");
      data_path =  './data/posnegstatswithtext-5.json';          //1-孟
+     updateCloud(5);
   }
   if($("#fanbutton-5").css("color") === "rgb(17, 236, 52)"){
      $("#fanbutton-5").css("color", "rgb(255, 255, 255)");
      data_path =  './data/posnegstatswithtext-0.json';          //整体
+     updateCloud(0);
   }
 
   $.get(data_path).done(function(data){
@@ -631,10 +642,12 @@ $("#fanbutton-6").click(function(){                             //孟晚舟事�
   if($("#fanbutton-6").css("color") === "rgb(255, 255, 255)"){
      $("#fanbutton-6").css("color", "rgb(17, 236, 52)");
      data_path =  './data/posnegstatswithtext-6.json';          //1-孟
+     updateCloud(6);
   }
   if($("#fanbutton-6").css("color") === "rgb(17, 236, 52)"){
      $("#fanbutton-6").css("color", "rgb(255, 255, 255)");
      data_path =  './data/posnegstatswithtext-0.json';          //整体
+     updateCloud(0);
   }
 
   $.get(data_path).done(function(data){
