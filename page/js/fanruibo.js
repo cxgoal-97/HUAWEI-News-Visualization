@@ -8,14 +8,14 @@ function fanruibo(){
             data: ['积极', '消极'],
             right: '40%',
             textStyle: {
-                fontSize: 30,
+                fontSize: 10,
             }
         },
         tooltip: {
             trigger: 'axis',
             show: true,
             borderColor: "#C3CBD6",
-            extraCssText:' width:600px; height:400px; white-space:pre-wrap;',
+            extraCssText:' width:600px; height:200px; white-space:pre-wrap;',
             formatter: function(datas)
             {
                 // alert(JSON.stringify(datas));
@@ -31,7 +31,7 @@ function fanruibo(){
                 color: 'yellow',
                 decoration: 'none',
                 fontFamily: 'Verdana, sans-serif',
-                fontSize: 22,
+                fontSize: 14,
             }
         },
         dataset: {
@@ -107,7 +107,6 @@ function fanruibo(){
                     dimensions: ['日期序号', '积极条数', '消极条数'],
                 },
             });
-            console.log(pos_neg_chart.getOption());
         });
         $("#fanbutton-8").click(function(){
             pos_neg_chart.setOption({
@@ -115,7 +114,6 @@ function fanruibo(){
                     dimensions: ['日期序号', '积极评论', '消极评论'],
                 },
             });
-            console.log(pos_neg_chart.getOption());
         });
         $("#fanbutton-9").click(function(){
             pos_neg_chart.setOption({
@@ -170,7 +168,7 @@ function fanruibo(){
                     trigger: 'axis',
                     show: true,
                     borderColor: "#C3CBD6",
-                    extraCssText:' width:600px; height:400px; white-space:pre-wrap;',
+                    extraCssText:' width:600px; height:200px; white-space:pre-wrap;',
                     formatter: function(datas)
                     {
                         // alert(JSON.stringify(datas));
@@ -186,7 +184,7 @@ function fanruibo(){
                         color: 'yellow',
                         decoration: 'none',
                         fontFamily: 'Verdana, sans-serif',
-                        fontSize: 18,
+                        fontSize: 14,
                     }
                 },
                 dataset: {
@@ -266,7 +264,7 @@ function fanruibo(){
                     trigger: 'axis',
                     show: true,
                     borderColor: "#C3CBD6",
-                    extraCssText:' width:600px; height:400px; white-space:pre-wrap;',
+                    extraCssText:' width:600px; height:200px; white-space:pre-wrap;',
                     formatter: function(datas)
                     {
                         // alert(JSON.stringify(datas));
@@ -282,7 +280,7 @@ function fanruibo(){
                         color: 'yellow',
                         decoration: 'none',
                         fontFamily: 'Verdana, sans-serif',
-                        fontSize: 18,
+                        fontSize: 14,
                     }
                 },
                 dataset: {
@@ -365,7 +363,7 @@ function fanruibo(){
                     trigger: 'axis',
                     show: true,
                     borderColor: "#C3CBD6",
-                    extraCssText:' width:600px; height:400px; white-space:pre-wrap;',
+                    extraCssText:' width:600px; height:200px; white-space:pre-wrap;',
                     formatter: function(datas)
                     {
                         // alert(JSON.stringify(datas));
@@ -381,7 +379,7 @@ function fanruibo(){
                         color: 'yellow',
                         decoration: 'none',
                         fontFamily: 'Verdana, sans-serif',
-                        fontSize: 18,
+                        fontSize: 14,
                     }
                 },
                 dataset: {
@@ -463,7 +461,7 @@ function fanruibo(){
                     trigger: 'axis',
                     show: true,
                     borderColor: "#C3CBD6",
-                    extraCssText:' width:600px; height:400px; white-space:pre-wrap;',
+                    extraCssText:' width:600px; height:200px; white-space:pre-wrap;',
                     formatter: function(datas)
                     {
                         // alert(JSON.stringify(datas));
@@ -479,7 +477,7 @@ function fanruibo(){
                         color: 'yellow',
                         decoration: 'none',
                         fontFamily: 'Verdana, sans-serif',
-                        fontSize: 18,
+                        fontSize: 14,
                     }
                 },
                 dataset: {
@@ -557,7 +555,7 @@ function fanruibo(){
                     trigger: 'axis',
                     show: true,
                     borderColor: "#C3CBD6",
-                    extraCssText:' width:600px; height:400px; white-space:pre-wrap;',
+                    extraCssText:' width:600px; height:200px; white-space:pre-wrap;',
                     formatter: function(datas)
                     {
                         // alert(JSON.stringify(datas));
@@ -573,7 +571,7 @@ function fanruibo(){
                         color: 'yellow',
                         decoration: 'none',
                         fontFamily: 'Verdana, sans-serif',
-                        fontSize: 18,
+                        fontSize: 14,
                     }
                 },
                 dataset: {
@@ -655,7 +653,7 @@ function fanruibo(){
                     trigger: 'axis',
                     show: true,
                     borderColor: "#C3CBD6",
-                    extraCssText:' width:600px; height:400px; white-space:pre-wrap;',
+                    extraCssText:' width:600px; height:200px; white-space:pre-wrap;',
                     formatter: function(datas)
                     {
                         // alert(JSON.stringify(datas));
@@ -671,7 +669,7 @@ function fanruibo(){
                         color: 'yellow',
                         decoration: 'none',
                         fontFamily: 'Verdana, sans-serif',
-                        fontSize: 18,
+                        fontSize: 14,
                     }
                 },
                 dataset: {

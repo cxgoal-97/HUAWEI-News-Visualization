@@ -61,10 +61,6 @@ function sentiment_series_plot(key_word, data){
                 magicType: {
                     type: ['tiled', 'stack']
                 },
-                dataView: {},
-                saveAsImage: {
-                    pixelRatio: 2
-                }
             }
         },
         tooltip: {},

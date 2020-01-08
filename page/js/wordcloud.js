@@ -45,11 +45,11 @@ function genHis(file_path,anchorId,eId,kwname){
     $.getJSON(file_path,function (data) {
         mapping = ["华为的2019年","孟晚舟事件","英国取消华为采购事件","华为被加入美实体清单事件","鸿蒙系统事件","IEEE除名华为事件","李洪元事件"];
         var chart = echarts.init(document.getElementById(anchorId));
-        console.log(data);
         option = {
             title:{
-                text:mapping[eId] + '期间，关键词"'+kwname+'"热度图'
+                text:'事件期间，关键词"'+kwname+'"热度图',
             },
+            
             legend: {
                 top: '3%',
                 data:[
@@ -57,13 +57,23 @@ function genHis(file_path,anchorId,eId,kwname){
                     {name:'消极指数',icon:'circle'},
                 ]
             },
+            toolbox: {
+                // y: 'bottom',
+                feature: {
+                    magicType: {
+                        type: ['tiled', 'stack']
+                    },
+                }
+            },
             tooltip: {
                 trigger: 'axis'
             },
+            
             dataset:{
                 dimensions:["date","积极指数","消极指数"],
                 source:data
             },
+            
             dataZoom: [
                 {
                     type: 'slider',
@@ -77,12 +87,25 @@ function genHis(file_path,anchorId,eId,kwname){
                 bottom: '10%',
                 containLabel: true
             },
-            xAxis: {type: 'category'},
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+            },
             yAxis: {type: 'value'},
 
             series: [
-                {type: 'line'},
-                {type: 'line'}
+                {
+                    name: '积极指数',
+                    type: 'line',
+                    stack: '总量',
+                    areaStyle: {},
+                },
+                {
+                    name: '消极指数',
+                    type: 'line',
+                    stack: '总量',
+                    areaStyle: {},
+                }
             ]
         };
         chart.setOption(option,true);

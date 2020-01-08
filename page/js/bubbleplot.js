@@ -63,8 +63,8 @@ function bubble_plot(key_word, data){
                 var bubble_tip = d3.select("#bubble-tip")
                 bubble_tip
                     .html(`<p  style="color:white">&nbsp;&nbsp;用户:${d.data['用户ID']}<br>&nbsp;&nbsp;${pos_word}:${d.data[pos_word]}<br>&nbsp;&nbsp;${neg_word}:${d.data[neg_word]}<\p>`)
-                    .style("left",(d3.event.pageX-700)+"px")//确定数据提示框
-                    .style("top",(d3.event.pageY-300)+"px")
+                    .style("left",(d3.event.pageX)-700+"px")//确定数据提示框
+                    .style("top",(d3.event.pageY-1800)+"px")
                     .style("opacity",1)
                     .style("width", 200)
                     .style("background", "grey")
@@ -75,7 +75,6 @@ function bubble_plot(key_word, data){
                     .style("left",(-100)+"px")
                     .style("top",(-100)+"px")
                     .style("opacity",0.0)
-
             })
         
 

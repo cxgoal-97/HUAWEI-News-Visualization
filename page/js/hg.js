@@ -179,7 +179,7 @@ $(".btn.btn.btn-info.btn-xl").click(function(){
     },dataZoom: [{
         type: 'inside',
         start: 0,
-        end: 100
+        end: 30
     }, {
         start: 0,
         end: 10,
